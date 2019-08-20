@@ -20,4 +20,7 @@ def create_app():
 
     Migrate(app, app.db)
 
+    from app.routes.todo import bp_todos
+    app.register_blueprint(bp_todos)
+
     return app
