@@ -22,3 +22,11 @@ def register_todo():
     current_app.db.session.commit()
 
     return todo_schema.jsonify(todo), 201
+
+
+@bp_todos.route("/delete/<id>", methods=["GET"])
+def delete_todo(id):
+    Todo.query.filter(Todo.id == id).delete()
+    current_app.db.session.commit()
+
+    return jsonify("Todo deletada com sucesso.")
