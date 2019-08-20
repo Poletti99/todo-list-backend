@@ -30,3 +30,15 @@ def delete_todo(id):
     current_app.db.session.commit()
 
     return jsonify("Todo deletada com sucesso.")
+
+
+@bp_todos.route("/update/<id>", methods=["POST"])
+def modificar(id):
+    todo_schema = TodoSchema()
+
+    todo = Todo.query.filter(Todo.id == id)
+    todo.update(request.json)
+
+    current_app.db.session.commit()
+
+    return todo_schema.jsonify(todo.first())
