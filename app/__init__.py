@@ -1,6 +1,8 @@
 import os
 from flask import Flask
 from flask_migrate import Migrate
+from app.models import configure as config_db
+from .serealizer import configure as config_ma
 from flask_cors import CORS
 
 
@@ -12,5 +14,10 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////tmp/todos.db"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["CORS_HEADERS"] = "Content-Type"
+
+    config_db(app)
+    config_ma(app)
+
+    Migrate(app, app.db)
 
     return app

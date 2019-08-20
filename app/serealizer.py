@@ -1,6 +1,6 @@
 from marshmallow import fields, validates, ValidationError
 from flask_marshmallow import Marshmallow
-from models import Todo
+from app.models import Todo
 
 ma = Marshmallow()
 

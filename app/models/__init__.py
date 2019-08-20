@@ -1,1 +1,1 @@
-from models import Todo
+from app.models.Todo import Todo, configure
