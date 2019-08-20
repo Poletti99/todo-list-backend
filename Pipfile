@@ -12,6 +12,7 @@ flask-migrate = "*"
 marshmallow = "*"
 marshmallow-sqlalchemy = "*"
 flask-cors = "*"
+flask-marshmallow = "*"
 
 [requires]
 python_version = "3.6"
